@@ -1,14 +1,13 @@
 version: 0.2
 phases:
+  install:
+    runtime-versions:
+      dotnet: 5.0
   pre_build:
     commands:
       - echo Restore started on `date`
       - dotnet restore WebApplicationSample/WebApplicationSample.csproj
-    runtime-versions:
-      dotnet: 5.0
   build:
-    runtime-versions:
-      dotnet: 5.0
     commands:
       - echo Build started on `date`
       - dotnet publish -c release -o ./build_output WebApplicationSample/WebApplicationSample.csproj
